@@ -8,9 +8,24 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        this.Add(ItemCode.glove_1, 1);
-        this.Add(ItemCode.sword_1, 3);
-        this.Add(ItemCode.sword_2, 6);
+        //this.Add(ItemCode.glove_1, 1);
+        //this.Add(ItemCode.sword_1, 3);
+        //this.Add(ItemCode.sword_2, 6);
+    }
+
+    private void Reset()
+    {
+        this.LoadItems();
+    }
+
+    protected virtual void LoadItems()
+    {
+        Item item;
+        foreach (Transform child in transform)
+        {
+            item = child.GetComponent<Item>();
+            this.items.Add(item);
+        }
     }
 
     public virtual void Add(ItemCode itemCode,int count = 1)
