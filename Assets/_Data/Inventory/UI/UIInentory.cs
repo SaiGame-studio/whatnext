@@ -20,8 +20,9 @@ public class UIInentory : MonoBehaviour
         UIItem uiItem;
         foreach(Item item in this.inventory.items)
         {
-            uiItem = this.createUIItem(item);
+            uiItem = this.CreateUIItem(item);
             uiItem.transform.SetParent(this.content);
+            uiItem.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
@@ -33,7 +34,7 @@ public class UIInentory : MonoBehaviour
         }
     }
 
-    protected virtual UIItem createUIItem(Item item)
+    protected virtual UIItem CreateUIItem(Item item)
     {
         UIItem uiItem = Instantiate(this.uiItemPrefab) as UIItem;
         uiItem.SetItem(item);
