@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: 2
   itemType: 1
+  itemSprite: {fileID: 21300000, guid: 12974b307f887c84e8a74e248919cfb9, type: 3}
   itemName: Sword 2
   itemDescription: Something here
+  itemMax: 99
