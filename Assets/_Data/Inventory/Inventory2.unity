@@ -5138,7 +5138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fca41a08b60a74f85ca22f8c339f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 1171381064}
+  inventory: {fileID: 939186080}
   content: {fileID: 6595888570626418015}
   uiItemPrefab: {fileID: 4540359159034780871, guid: 7fd2dcf1960afa04b859821be95dc33e, type: 3}
 --- !u!1 &6595888569376945848
