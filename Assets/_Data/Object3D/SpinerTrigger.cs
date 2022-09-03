@@ -6,7 +6,7 @@ public class SpinerTrigger : MonoBehaviour
 {
     [SerializeField] protected Transform spiner;
     [SerializeField] protected float speed = 0f;
-    [SerializeField] protected float speedMax = 200f;
+    [SerializeField] protected float speedMax = 700f;
     [SerializeField] protected float slowDown = 1f;
 
     protected void OnMouseDown()
@@ -18,6 +18,7 @@ public class SpinerTrigger : MonoBehaviour
     protected virtual void StartSpin()
     {
         this.speed = this.speedMax;
+
     }
 
     protected void FixedUpdate()
