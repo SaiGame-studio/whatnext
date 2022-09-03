@@ -18,6 +18,7 @@ public class SpinerTrigger : MonoBehaviour
     protected virtual void StartSpin()
     {
         this.speed = this.speedMax;
+
     }
 
     protected void FixedUpdate()
