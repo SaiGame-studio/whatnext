@@ -6,7 +6,7 @@ public class SpinerTrigger : MonoBehaviour
 {
     [SerializeField] protected Transform spiner;
     [SerializeField] protected float speed = 0f;
-    [SerializeField] protected float speedMax = 200f;
+    [SerializeField] protected float speedMax = 700f;
     [SerializeField] protected float slowDown = 1f;
 
     protected void OnMouseDown()
