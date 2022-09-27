@@ -5,7 +5,6 @@ using UnityEngine;
 public class MapSpawner : MonoBehaviour
 {
     [SerializeField] protected MapCode mapCode;
-    [SerializeField] protected MapCode mapCodeRelate;
     [SerializeField] protected MapInfinity currentMap;
     [SerializeField] protected MapInfinity newMapInfinity;
     [SerializeField] protected Vector3 spawnPosOffset = new Vector3(0,0,0);
@@ -17,18 +16,15 @@ public class MapSpawner : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        this.SpawnMap();
-    }
-
-    protected virtual void DespawnMap()
-    {
-        Destroy(this.newMapInfinity.gameObject);
-        this.newMapInfinity = null;
-        this.currentMap.Set(this.mapCode, null);
+        string objTag = other.transform.parent.tag;
+        Debug.Log("other.tag: "+ objTag);
+        if(objTag == "Player") this.SpawnMap();
     }
 
     protected virtual void SpawnMap()
     {
+        if (this.MapIsSpawned()) return;
+
         Vector3 spawnPos = this.currentMap.transform.position;
         spawnPos.x += this.spawnPosOffset.x;
         spawnPos.y += this.spawnPosOffset.y;
@@ -36,12 +32,15 @@ public class MapSpawner : MonoBehaviour
 
         GameObject newMap = Instantiate(this.currentMap.gameObject);
         newMap.transform.position = spawnPos;
-        newMap.name = newMap.name;
+        newMap.name = this.currentMap.name;
         this.newMapInfinity = newMap.GetComponent<MapInfinity>();
 
+        //this.currentMap.Set(this.mapCode, this.newMapInfinity);
+    }
 
-        this.currentMap.Set(this.mapCode, this.newMapInfinity);
-        this.newMapInfinity.Set(this.mapCodeRelate, this.currentMap);
+    protected virtual bool MapIsSpawned()
+    {
+        return this.currentMap.Get(this.mapCode) != null;
     }
 
     protected virtual void LoadCurrentMap()
